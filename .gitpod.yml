@@ -10,7 +10,6 @@ ports:
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
 tasks:
 - command: docker --version
-  command: docker-compose --version
 vscode:
   extensions:
     - googlecloudtools.cloudcode@0.0.12:aImviY7NjOmGuXuyoD+uxQ==
