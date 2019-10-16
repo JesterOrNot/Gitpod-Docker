@@ -1,3 +1,5 @@
+FROM gitpod/workspace-full-vnc
+USER root
 RUN apt-get update && \
     apt-get install apt-transport-https && \
     apt-get install ca-certificates && \
