@@ -9,7 +9,7 @@ ports:
 tasks:
 - command: docker --version
   command: docker-compose --version
-  command: docker-machine --version
+  command: docker-machine version
 vscode:
   extensions:
     - googlecloudtools.cloudcode@0.0.12:aImviY7NjOmGuXuyoD+uxQ==
