@@ -3,12 +3,13 @@ image:
 
 # List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/43_config_ports/
 ports:
-- port: 3000
-
-# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
+- port: 5900
+- port: 6080
+- port: 35900
 tasks:
 - command: docker --version
-- command: docker-compose --version
+  command: docker-compose --version
+  command: docker-machine --version
 vscode:
   extensions:
     - googlecloudtools.cloudcode@0.0.12:aImviY7NjOmGuXuyoD+uxQ==
