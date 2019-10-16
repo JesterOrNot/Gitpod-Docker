@@ -1,1 +1,1 @@
-FROM dockercore/docker
+FROM docker
