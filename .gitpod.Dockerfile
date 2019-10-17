@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full-vnc
+FROM gitpod/workspace-full-vnc@sha256:22bfcdd143f9b32f1d3821ab7ce3f83f2458725feaa4366456e5f8bc312354fc
 RUN apt-get update && \
     apt-get install apt-transport-https && \
     apt-get install ca-certificates && \
@@ -9,5 +9,5 @@ RUN apt-get update && \
     apt-get install docker-ce --yes --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-RUN sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
+RUN curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
 RUN curl -L https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && mv /tmp/docker-machine /usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine
