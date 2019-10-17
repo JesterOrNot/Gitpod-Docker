@@ -2,7 +2,7 @@ FROM gitpod/workspace-full-vnc@sha256:22bfcdd143f9b32f1d3821ab7ce3f83f2458725fea
 RUN apt-get update && \
     apt-get install apt-transport-https \
     ca-certificates \
-    software-properties-common=0.96.20.2-2 --yes --no-install-recommends && \
+    software-properties-common --yes --no-install-recommends && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
     apt-get update && \
