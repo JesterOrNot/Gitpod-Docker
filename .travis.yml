@@ -3,4 +3,4 @@ language: ruby
 services:
   - docker
 script:
-  - docker build .
+  - docker build -f .gitpod.Dockerfile.
