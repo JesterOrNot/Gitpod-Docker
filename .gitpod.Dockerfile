@@ -3,7 +3,7 @@ USER gitpod
 
 # Rootless Docker
 # gets installed to /home/gitpod/bin
-RUN curl -sSL https://get.docker.com/rootless | sh
+RUN cat <<EOF | sudo sh -x && apt-get install -y uidmap && apt-get install -y iptables && modprobe ip_tables && EOF && curl -sSL https://get.docker.com/rootless | sh
 # It requires the following env vars:
 ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 ENV PATH=/home/gitpod/bin:$PATH
