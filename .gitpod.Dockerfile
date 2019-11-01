@@ -1,5 +1,5 @@
 FROM gitpod/workspace-full
-USER gitpod
+USER root
 
 # Rootless Docker
 # gets installed to /home/gitpod/bin
