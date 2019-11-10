@@ -1,4 +1,4 @@
-FROM docker:19.03.4-dind
+FROM docker:19.03-rc-dind
 
 # busybox "ip" is insufficient:
 #   [rootlesskit:child ] error: executing [[ip tuntap add name tap0 mode tap] [ip link set tap0 address 02:50:00:00:00:01]]: exit status 1
@@ -16,7 +16,18 @@ RUN set -eux; \
 RUN set -eux; \
 	\
 # this "case" statement is generated via "update.sh"
-	%%ARCH-CASE%%; \
+	apkArch="$(apk --print-arch)"; \
+	case "$apkArch" in \
+# amd64
+		x86_64) dockerArch='x86_64' ;; \
+# arm32v6
+		armhf) dockerArch='armel' ;; \
+# arm32v7
+		armv7) dockerArch='armhf' ;; \
+# arm64v8
+		aarch64) dockerArch='aarch64' ;; \
+		*) echo >&2 "error: unsupported architecture ($apkArch)"; exit 1 ;;\
+	esac; \
 	\
 	if ! wget -O rootless.tgz "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/${dockerArch}/docker-rootless-extras-${DOCKER_VERSION}.tgz"; then \
 		echo >&2 "error: failed to download 'docker-rootless-extras-${DOCKER_VERSION}' from '${DOCKER_CHANNEL}' for '${dockerArch}'"; \
