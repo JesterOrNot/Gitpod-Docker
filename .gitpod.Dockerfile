@@ -12,7 +12,7 @@ RUN set -eux; \
 	adduser -h /home/rootless -g 'Rootless' -D -u 1000 rootless; \
 	echo 'rootless:100000:65536' >> /etc/subuid; \
 	echo 'rootless:100000:65536' >> /etc/subgid; \
-    echo "gitpod:333333:65536" >> /etc/subuid;
+    echo "gitpod:333333:65536" >> /etc/subuid; \
     echo "gitpod:333333:65536" >> /etc/subgid
 RUN set -eux; \
 	\
