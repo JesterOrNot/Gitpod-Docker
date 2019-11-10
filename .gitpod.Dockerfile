@@ -1,3 +1,4 @@
+FROM gitpod/workspace-full
 USER gitpod
 
 # Rootless Docker
