@@ -70,5 +70,7 @@ RUN set -eux; \
 	mkdir -p /home/rootless/.local/share/docker; \
 	chown -R rootless:rootless /home/rootless/.local/share/docker
 VOLUME /home/rootless/.local/share/docker
-RUN dockerd-entrypoint.sh
 USER rootless
+ENV XDG_RUNTIME_DIR=/tmp/docker-33333
+ENV PATH=/home/gitpod/bin:$PATH
+ENV DOCKER_HOST=unix:///tmp/docker-33333/docker.sock
