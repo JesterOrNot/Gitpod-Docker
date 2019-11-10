@@ -1,5 +1,5 @@
 FROM gitpod/workspace-full
-#RUN cat <<EOF | sudo sh -x
+RUN cat <<EOF | sudo sh -x
 RUN sudo apt-get update && sudo apt-get install -y uidmap iptables kmod
 RUN curl -sSL https://get.docker.com/rootless | bash
 # It requires the following env vars:
