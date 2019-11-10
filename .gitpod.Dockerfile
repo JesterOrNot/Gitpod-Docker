@@ -72,3 +72,4 @@ RUN set -eux; \
 	chown -R rootless:rootless /home/rootless/.local/share/docker
 VOLUME /home/rootless/.local/share/docker
 USER rootless
+RUN /usr/local/bin/dockerd-entrypoint.sh
