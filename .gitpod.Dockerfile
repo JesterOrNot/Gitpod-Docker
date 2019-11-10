@@ -70,5 +70,5 @@ RUN set -eux; \
 	mkdir -p /home/rootless/.local/share/docker; \
 	chown -R rootless:rootless /home/rootless/.local/share/docker
 VOLUME /home/rootless/.local/share/docker
-RUN sudo dockerd --experimental --rootless
+RUN dockerd-entrypoint.sh
 USER rootless
