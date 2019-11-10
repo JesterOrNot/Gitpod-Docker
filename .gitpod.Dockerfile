@@ -1,8 +1,4 @@
-FROM gitpod/workspace-full
-USER gitpod
-
-# Rootless Docker
-# gets installed to /home/gitpod/bin
+FROM ubuntu
 RUN cat <<EOF | sudo sh -x
 RUN sudo apt-get update && sudo apt-get install -y uidmap iptables && modprobe ip_tables && EOF
 RUN curl -sSL https://get.docker.com/rootless | sh
