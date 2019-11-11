@@ -46,3 +46,4 @@ RUN curl -sSL https://get.docker.com/rootless | sh
 ENV XDG_RUNTIME_DIR=/tmp/docker-1000
 ENV PATH=/home/user/bin:$PATH
 ENV DOCKER_HOST=unix:///tmp/docker-1000/docker.sock
+USER root
