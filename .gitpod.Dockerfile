@@ -1,1 +1,1 @@
-FROM dictcp/cloudshell
+FROM gcr.io/cloudshell-images/cloudshell
