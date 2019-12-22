@@ -13,5 +13,5 @@ RUN sudo apt-get update \
     stable" \
     && apt-cache policy docker-ce \
     && sudo apt install -y docker-ce \
-    && sudo systemctl status docker \
+    && sudo service docker start \
     && sudo usermod -aG docker ${USER}
