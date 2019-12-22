@@ -15,7 +15,10 @@ RUN sudo apt-get update \
     && sudo apt install -y docker-ce uidmap \
     && sudo service docker start \
     && sudo usermod -aG docker gitpod \
-    && sudo su - gitpod
+    && sudo su - gitpod \
+    && sudo echo "kernel.unprivileged_userns_clone=1" >> /etc/sysctl.conf \
+    && sudo sysctl --system
+
 USER gitpod
-RUN cat <<EOF | sudo sh -x \
-    && modprobe ip_tables \
+RUN curl -s -sSL https://get.docker.com/rootless | sh
+USER root
