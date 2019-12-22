@@ -18,8 +18,8 @@ RUN sudo apt-get update \
     && sudo apt install -y docker-ce uidmap \
     && sudo service docker start \
     && sudo usermod -aG docker gitpod \
-    && go get github.com/rootless-containers/rootlesskit/cmd/rootlesskit \
-    && go get github.com/rootless-containers/rootlesskit/cmd/rootlessctl
+    && sudo go get github.com/rootless-containers/rootlesskit/cmd/rootlesskit \
+    && sudo go get github.com/rootless-containers/rootlesskit/cmd/rootlessctl
 USER gitpod
 RUN curl -fsSL https://get.docker.com -o get-docker.sh
 USER root
