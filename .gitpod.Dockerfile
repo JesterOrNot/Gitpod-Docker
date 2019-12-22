@@ -6,6 +6,7 @@ RUN sudo apt-get update \
     ca-certificates \
     curl \
     gnupg2 \
+    uidmap \
     kmod \
     software-properties-common
     # && curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - \
@@ -20,5 +21,6 @@ RUN sudo apt-get update \
 USER gitpod
 RUN curl -fsSL https://get.docker.com -o get-docker.sh \
     && sh get-docker.sh \
-    && sudo curl -s -sSL https://get.docker.com/rootless | sh
+    && sudo curl -s -sSL https://get.docker.com/rootless | sh \
+    && sudo usermod -aG docker gitpod
 USER root
