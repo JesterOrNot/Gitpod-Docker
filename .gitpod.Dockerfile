@@ -20,11 +20,10 @@ RUN sudo apt-get update \
     && sudo apt install -y docker-ce uidmap \
     && sudo service docker start \
     && sudo usermod -aG docker gitpod
-    # && sudo go get github.com/rootless-containers/rootlesskit/cmd/rootlesskit \
-    # && sudo go get github.com/rootless-containers/rootlesskit/cmd/rootlessctl
+# && sudo go get github.com/rootless-containers/rootlesskit/cmd/rootlesskit \
+# && sudo go get github.com/rootless-containers/rootlesskit/cmd/rootlessctl
 USER gitpod
+RUN export SKIP_IPTABLES=1 && curl -fsSL https://get.docker.com/rootless | sh
 ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 ENV PATH=/home/gitpod/bin:$PATH
 ENV DOCKER_HOST=unix:///tmp/docker-33333/docker.sock
-RUN export SKIP_IPTABLES=1 && curl -fsSL https://get.docker.com/rootless | sh
-USER root
