@@ -18,8 +18,4 @@ RUN sudo apt-get update \
     && sudo su - gitpod
 USER gitpod
 RUN cat <<EOF | sudo sh -x \
-    && sudo apt-get update \
-    && sudo apt-get install -y \
-    uidmap \
-    modprobe ip_tables \
-    EOF
+    && modprobe ip_tables \
