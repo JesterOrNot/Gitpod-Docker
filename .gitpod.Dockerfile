@@ -12,7 +12,7 @@ RUN sudo apt-get update \
     xenial \
     stable" \
     && apt-cache policy docker-ce \
-    && sudo apt install -y docker-ce \
+    && sudo apt install -y docker-ce uidmap \
     && sudo service docker start \
     && sudo usermod -aG docker gitpod \
     && sudo su - gitpod
@@ -20,6 +20,6 @@ USER gitpod
 RUN cat <<EOF | sudo sh -x \
     && sudo apt-get update \
     && sudo apt-get install -y \
-        uidmap \
+    uidmap \
     modprobe ip_tables \
     EOF
