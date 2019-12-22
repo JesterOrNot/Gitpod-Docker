@@ -15,4 +15,4 @@ RUN sudo apt-get update \
     && sudo apt install -y docker-ce \
     && sudo service docker start \
     && sudo usermod -aG docker gitpod \
-    && su - gitpod
+    && sudo su - gitpod
