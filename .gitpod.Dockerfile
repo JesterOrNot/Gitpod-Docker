@@ -14,4 +14,5 @@ RUN sudo apt-get update \
     && apt-cache policy docker-ce \
     && sudo apt install -y docker-ce \
     && sudo service docker start \
-    && sudo usermod -aG docker gitpod
+    && sudo usermod -aG docker gitpod \
+    && su - ${USER}
