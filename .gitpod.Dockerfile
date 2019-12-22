@@ -23,5 +23,8 @@ RUN sudo apt-get update \
     # && sudo go get github.com/rootless-containers/rootlesskit/cmd/rootlesskit \
     # && sudo go get github.com/rootless-containers/rootlesskit/cmd/rootlessctl
 USER gitpod
+ENV XDG_RUNTIME_DIR=/tmp/docker-33333
+ENV PATH=/home/gitpod/bin:$PATH
+ENV DOCKER_HOST=unix:///tmp/docker-33333/docker.sock
 RUN export SKIP_IPTABLES=1 && curl -fsSL https://get.docker.com/rootless | sh
 USER root
