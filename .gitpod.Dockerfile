@@ -21,5 +21,5 @@ RUN sudo apt-get update \
     # && sudo go get github.com/rootless-containers/rootlesskit/cmd/rootlesskit \
     # && sudo go get github.com/rootless-containers/rootlesskit/cmd/rootlessctl
 USER gitpod
-RUN curl -fsSL https://get.docker.com -o get-docker.sh
+RUN export SKIP_IPTABLES=1 && curl -fsSL https://get.docker.com/rootless | sh
 USER root
