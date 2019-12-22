@@ -9,7 +9,7 @@ RUN sudo apt-get update \
     gnupg2 \
     uidmap \
     kmod \
-    software-properties-common \
+    software-properties-common
     # && curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - \
     # && sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     # xenial \
