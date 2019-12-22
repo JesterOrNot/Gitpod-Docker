@@ -8,6 +8,8 @@ RUN sudo apt-get update \
     curl \
     gnupg2 \
     uidmap \
+    lxc \
+    lxc-dev \
     kmod \
     software-properties-common \
     && curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - \
