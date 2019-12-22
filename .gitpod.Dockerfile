@@ -8,7 +8,7 @@ RUN sudo apt-get update \
         gnupg2 \
         software-properties-common \
     && curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - \
-    && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    && sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
         xenial \
         stable" \
     && apt-cache policy docker-ce \
