@@ -16,3 +16,10 @@ RUN sudo apt-get update \
     && sudo service docker start \
     && sudo usermod -aG docker gitpod \
     && sudo su - gitpod
+USER gitpod
+RUN cat <<EOF | sudo sh -x \
+    && sudo apt-get update \
+    && apt-get install -y \
+        uidmap \
+    modprobe ip_tables \
+    EOF
