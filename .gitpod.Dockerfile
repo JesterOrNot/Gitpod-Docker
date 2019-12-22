@@ -11,7 +11,7 @@ RUN sudo apt-get update \
     && sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     xenial \
     stable" \
-    && apt-cache policy docker-ce \
+    && sudo apt-cache policy docker-ce \
     && sudo apt install -y docker-ce uidmap \
     && sudo service docker start \
     && sudo usermod -aG docker gitpod \
@@ -20,5 +20,5 @@ RUN sudo apt-get update \
     && sudo sysctl --system
 
 USER gitpod
-RUN curl -s -sSL https://get.docker.com/rootless | sh
+RUN sudo curl -s -sSL https://get.docker.com/rootless | sh
 USER root
