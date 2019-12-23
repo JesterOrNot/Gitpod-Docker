@@ -64,8 +64,6 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
 USER gitpod
 
-SHELL [ "/bin/bash" ]
-
 RUN echo "XDG_RUNTIME_DIR=/tmp/docker-33333" >> ~/.bashrc \
     && echo "PATH=/home/gitpod/bin:$PATH" >> ~/.bashrc \
     && echo "DOCKER_HOST=unix:///tmp/docker-33333/docker.sock" >> ~/.bashrc \
