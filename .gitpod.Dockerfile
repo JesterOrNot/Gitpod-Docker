@@ -6,7 +6,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
           stable" \
     && sudo apt-cache policy docker-ce \
     && sudo apt-get update \
-    && sudo apt install -y \
+    && sudo apt-get install -y \
         dmsetup \
         git \
         git-man \
