@@ -59,13 +59,13 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
         software-properties-common \
         docker-ce \
     && sudo service docker start \
-    && sudo usermod -aG docker gitpod
+    && sudo usermod -aG docker gitpod \
+    && newgrp - docker \
 
 USER gitpod
 
 RUN export SKIP_IPTABLES=1 && curl -fsSL https://get.docker.com/rootless | sh
-USER root
+
 ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 ENV PATH=/home/gitpod/bin:$PATH
 ENV DOCKER_HOST=unix:///tmp/docker-33333/docker.sock
-RUN sudo dockerd -H unix:///var/run/docker/docker.sock > /tmp/logfile
