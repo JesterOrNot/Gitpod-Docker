@@ -8,8 +8,13 @@ RUN sudo apt-get update \
     imagemagick \
     imagemagick-6-common \
     imagemagick-6.q16
-  libdevmapper1.02.1 libdjvulibre-dev libdjvulibre-text libdjvulibre21 \
-  libfribidi0 libjpeg-turbo8 libjpeg-turbo8-dev libmagickcore-6-arch-config \
+  libdevmapper1.02.1 \
+  libdjvulibre-dev \
+  libdjvulibre-text \
+  libdjvulibre21 \
+  libfribidi0 \
+  libjpeg-turbo8 \
+  libjpeg-turbo8-dev libmagickcore-6-arch-config \
   libmagickcore-6-headers libmagickcore-6.q16-6 libmagickcore-6.q16-6-extra \
   libmagickcore-6.q16-dev libmagickcore-dev libmagickwand-6-headers \
   libmagickwand-6.q16-6 libmagickwand-6.q16-dev libmagickwand-dev \
