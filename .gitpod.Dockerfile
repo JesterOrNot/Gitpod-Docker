@@ -49,6 +49,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     unattended-upgrades \
     apt-utils \
     apt-transport-https \
+    netstat \
     ca-certificates \
     curl \
     gnupg2 \
@@ -64,9 +65,9 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
 USER gitpod
 
-RUN echo "XDG_RUNTIME_DIR=/tmp/docker-33333" >> ~/.bashrc \
-    && echo "PATH=/home/gitpod/bin:$PATH" >> ~/.bashrc \
-    && echo "DOCKER_HOST=unix:///tmp/docker-33333/docker.sock" >> ~/.bashrc \
+RUN echo "export XDG_RUNTIME_DIR=/tmp/docker-33333" >> ~/.bashrc \
+    && echo "export PATH=/home/gitpod/bin:$PATH" >> ~/.bashrc \
+    && echo "export DOCKER_HOST=unix:///tmp/docker-33333/docker.sock" >> ~/.bashrc \
     && . /home/gitpod/.bashrc \
     && export SKIP_IPTABLES=1 \
     && curl -fsSL https://get.docker.com/rootless | sh
