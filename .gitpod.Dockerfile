@@ -69,5 +69,6 @@ SHELL [ "/bin/bash" ]
 RUN echo "XDG_RUNTIME_DIR=/tmp/docker-33333" >> /home/gitpod/.bashrc \
     && echo "PATH=/home/gitpod/bin:$PATH" >> /home/gitpod/.bashrc \
     && echo "DOCKER_HOST=unix:///tmp/docker-33333/docker.sock" >> /home/gitpod/.bashrc \
+    && source /home/gitpod/.bashrc \
     && export SKIP_IPTABLES=1 \
     && curl -fsSL https://get.docker.com/rootless | sh
