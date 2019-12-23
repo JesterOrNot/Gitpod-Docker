@@ -49,7 +49,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     unattended-upgrades \
     apt-utils \
     apt-transport-https \
-    netstat \
+    netstat-nat \
     ca-certificates \
     curl \
     gnupg2 \
