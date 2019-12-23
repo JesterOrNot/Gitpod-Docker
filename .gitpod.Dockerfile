@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full
+FROM ubuntu
 
 RUN sudo apt-get update \
     && sudo apt install -y \
