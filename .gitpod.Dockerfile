@@ -68,5 +68,3 @@ RUN export SKIP_IPTABLES=1 && curl -fsSL https://get.docker.com/rootless | sh
 ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 ENV PATH=/home/gitpod/bin:$PATH
 ENV DOCKER_HOST=unix:///tmp/docker-33333/docker.sock
-
-RUN sudo dockerd -H 0.0.0.0:$PORT --tlsverify
