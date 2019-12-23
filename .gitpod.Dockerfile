@@ -63,7 +63,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
 USER gitpod
 
-RUN export SKIP_IPTABLES=1 && curl -fsSL https://get.docker.com/rootless | sh
+# RUN export SKIP_IPTABLES=1 && curl -fsSL https://get.docker.com/rootless | sh
 
 ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 ENV PATH=/home/gitpod/bin:$PATH
