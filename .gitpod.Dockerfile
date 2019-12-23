@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian
 
 RUN sudo apt-get update \
     && sudo apt install -y \
