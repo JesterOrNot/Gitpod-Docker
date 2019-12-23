@@ -1,12 +1,17 @@
 FROM gitpod/workspace-full
 
+USER root
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - \
-    && sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    && add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     xenial \
     stable" \
-    && sudo apt-cache policy docker-ce \
-    && sudo apt-get update \
-    && sudo apt-get install -y \
+    && apt-cache policy docker-ce \
+    && apt-get update \
+    && apt-get install -y \
     dmsetup \
     git \
     git-man \
@@ -61,9 +66,9 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     kmod \
     software-properties-common \
     docker-ce \
-    && sudo apt-get install --reinstall linux-image-3.13.0 \
-    && sudo service docker start \
-    && sudo usermod -aG docker gitpod \
+    && apt-get install --reinstall linux-image-3.13.0 \
+    && service docker start \
+    && usermod -aG docker gitpod \
     && newgrp - docker
 
 USER gitpod
