@@ -68,4 +68,4 @@ RUN export SKIP_IPTABLES=1 && curl -fsSL https://get.docker.com/rootless | sh
 ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 ENV PATH=/home/gitpod/bin:$PATH
 ENV DOCKER_HOST=unix:///tmp/docker-33333/docker.sock
-RUN sudo dockerd -H unix:///var/run/docker.sock -H tcp://192.168.59.106 -H tcp://10.10.10.2 > /logfile
+RUN sudo dockerd -H unix:///var/run/docker.sock -H tcp://192.168.59.106 -H tcp://10.10.10.2 > /tmp/logfile
