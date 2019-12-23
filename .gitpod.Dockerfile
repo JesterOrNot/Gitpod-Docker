@@ -68,4 +68,4 @@ USER root
 ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 ENV PATH=/home/gitpod/bin:$PATH
 ENV DOCKER_HOST=unix:///tmp/docker-33333/docker.sock
-RUN sudo dockerd -H unix:///tmp/docker-33333/docker.sock --experimental > /tmp/logfile
+RUN sudo dockerd -H unix:///var/run/docker/docker.sock --experimental > /tmp/logfile
