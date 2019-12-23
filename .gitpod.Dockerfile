@@ -51,6 +51,8 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     apt-transport-https \
     netstat-nat \
     ca-certificates \
+    overlayroot \
+    fuse-overlayfs \
     curl \
     gnupg2 \
     uidmap \
@@ -59,6 +61,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     kmod \
     software-properties-common \
     docker-ce \
+    && sudo apt-get install --reinstall linux-image-3.13.0 \
     && sudo service docker start \
     && sudo usermod -aG docker gitpod \
     && newgrp - docker
