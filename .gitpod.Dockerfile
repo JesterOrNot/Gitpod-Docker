@@ -65,9 +65,6 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     lxc-dev \
     kmod \
     software-properties-common \
-    docker-ce \
-    docker-ce-cli \
-    containerd.io \
     && service docker start \
     && usermod -aG docker gitpod \
     && newgrp docker
