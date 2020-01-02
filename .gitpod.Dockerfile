@@ -65,8 +65,8 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     lxc-dev \
     kmod \
     software-properties-common \
-    && usermod -aG docker gitpod \
-    && newgrp docker
+    && newgrp docker \
+    && usermod -aG docker gitpod
 
 USER gitpod
 
