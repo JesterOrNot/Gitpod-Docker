@@ -85,4 +85,4 @@ ENV PATH=/home/gitpod/bin:$PATH
 
 ENV DOCKER_HOST=unix:///tmp/docker-33333/docker.sock
 
-RUN /home/gitpod/bin/dockerd-rootless.sh --experimental --iptables=false --storage-driver vfs
+RUN sudo /home/gitpod/bin/dockerd-rootless.sh --experimental --iptables=false --storage-driver vfs
