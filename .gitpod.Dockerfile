@@ -6,8 +6,8 @@ RUN apk add --no-cache iproute2
 
 # "/run/user/UID" will be used by default as the value of XDG_RUNTIME_DIR
 RUN mkdir /run/user && chmod 1777 /run/user
-
-RUN adduser -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod \
+adduser -h /home/rootless -g 'Rootless' -D -u 1000 rootless
+RUN adduser -h /home/gitpod -g `Gitpod` -D -u 33333 -G sudo -s /bin/bash gitpod \
     # passwordless sudo for users in the 'sudo' group
     && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 ENV HOME=/home/gitpod
