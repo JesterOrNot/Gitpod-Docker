@@ -13,6 +13,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     && apt-get update \
     && apt-get install -y \
     dmsetup \
+    iproute2 \
     git \
     git-man \
     imagemagick \
