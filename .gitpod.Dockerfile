@@ -74,7 +74,9 @@ RUN echo "kernel.unprivileged_userns_clone=1" >>/etc/sysctl.conf \
 
 USER gitpod
 
-RUN SKIP_IPTABLES=1 curl -sSL https://get.docker.com/rootless | sh
+ARG SKIP_IPTABLES=1
+
+RUN curl -sSL https://get.docker.com/rootless | sh
 
 ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 
