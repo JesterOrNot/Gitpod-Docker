@@ -25,6 +25,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     libfribidi0 \
     libjpeg-turbo8 \
     libjpeg-turbo8-dev \
+    iproute2 \
     libmagickcore-6-arch-config \
     libmagickcore-6-headers \
     libmagickcore-6.q16-6 \
@@ -83,3 +84,5 @@ ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 ENV PATH=/home/gitpod/bin:$PATH
 
 ENV DOCKER_HOST=unix:///tmp/docker-33333/docker.sock
+
+RUN /home/gitpod/bin/dockerd-rootless.sh --experimental --iptables=false --storage-driver vfs
