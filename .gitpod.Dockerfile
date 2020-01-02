@@ -6,17 +6,9 @@ RUN apk add --no-cache iproute2
 
 # "/run/user/UID" will be used by default as the value of XDG_RUNTIME_DIR
 RUN mkdir /run/user && chmod 1777 /run/user
-#adduser -h /home/rootless -g 'Rootless' -D -u 1000 rootless
-RUN adduser -h /home/gitpod -g `Rootless` -D -u 33333 -s /bin/bash gitpod \
-    # passwordless sudo for users in the 'sudo' group
-    && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
-ENV HOME=/home/gitpod
-WORKDIR $HOME
-# custom Bash prompt
-RUN { echo && echo "PS1='\[\e]0;\u \w\a\]\[\033[01;32m\]\u\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \\\$ '" ; } >> .bashrc
 
-# create a default user preconfigured for running rootless dockerd
 RUN set -eux; \
+	adduser -h /home/gitpod -D -u 3333 gitpod; \
 	echo 'gitpod:100000:65536' >> /etc/subuid; \
 	echo 'gitpod:100000:65536' >> /etc/subgid
 
