@@ -71,7 +71,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
 RUN echo "kernel.unprivileged_userns_clone=1" >>/etc/sysctl.conf \
     && sudo sysctl --system
-
+RUN sudo sh -c "echo 1 > /proc/sys/kernel/unprivileged_userns_clone"
 
 USER gitpod
 
