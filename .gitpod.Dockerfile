@@ -67,13 +67,12 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     software-properties-common \
     && groupadd docker \
     && usermod -aG docker gitpod \
-    && cat <<EOF | sudo sh -x \
-       modprobe ip_tables \
-       EOF
 
 USER gitpod
-
-RUN curl -sSL https://get.docker.com/rootless | sh
+RUN cat <<EOF | sudo sh -x \
+       modprobe ip_tables \
+       EOF \
+    && curl -sSL https://get.docker.com/rootless | sh
 
 ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 ENV PATH=/home/gitpod/bin:$PATH
