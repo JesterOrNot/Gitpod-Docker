@@ -71,8 +71,8 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
 RUN echo "kernel.unprivileged_userns_clone=1" >>/etc/sysctl.conf \
     && sudo sysctl --system
-RUN sudo sh -c "echo 1 > /proc/sys/kernel/unprivileged_userns_clone"
-
+RUN go get github.com/rootless-containers/rootlesskit/cmd/rootlesskit \
+    && go get github.com/rootless-containers/rootlesskit/cmd/rootlessctl
 USER gitpod
 
 ARG SKIP_IPTABLES=1
