@@ -71,13 +71,10 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 RUN echo "kernel.unprivileged_userns_clone=1" >>/etc/sysctl.conf \
     && sudo sysctl --system
 
-RUN cat <<EOF | sudo sh -x \
-    && modprobe ip_tables \
-    EOF
 
 USER gitpod
 
-RUN curl -sSL https://get.docker.com/rootless | sh
+RUN SKIP_IPTABLES=1 curl -sSL https://get.docker.com/rootless | sh
 
 ENV XDG_RUNTIME_DIR=/tmp/docker-33333
 
