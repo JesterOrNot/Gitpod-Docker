@@ -72,7 +72,8 @@ RUN echo "kernel.unprivileged_userns_clone=1" >>/etc/sysctl.conf \
     && sudo sysctl --system
 
 RUN cat <<EOF | sudo sh -x \
-    sudo modprobe ip_tables \&
+    sudo modprobe ip_tables \
+    EOF
 
 USER gitpod
 
