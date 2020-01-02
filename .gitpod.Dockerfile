@@ -70,7 +70,7 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
 USER gitpod
 RUN cat <<EOF | sudo sh -x \
-       modprobe ip_tables \
+       sudo modprobe ip_tables \
        EOF \
     && curl -sSL https://get.docker.com/rootless | sh
 
